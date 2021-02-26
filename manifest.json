@@ -1,0 +1,25 @@
+
+{
+  "manifest_version": 2,
+  "name": "uName",
+  "version":"0.1",
+  "description": "Change the title of you browser tab to whatever you want!",
+
+  "permissions": [
+  "tabs"
+],
+
+  "content_scripts": [
+    {
+    "matches": ["<all_urls>"],
+    "css": ["stylesheet.css"],
+    "js": ["index.js"]
+      }
+    ],
+
+  "browser_action":{
+    "default_title": "Rename Your Browser",
+    "default_popup": "popup.html",
+    "default_icon": "./uNameIconThumb.png"
+      }
+  }
