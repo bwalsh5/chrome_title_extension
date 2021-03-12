@@ -1,14 +1,38 @@
 
-document.getElementById('submit').addEventListener("click", function() {
-    var name = document.getElementById("input").value;
-    document.getElementById("demo").innerHTML = '<b>' + "uNamed It: " + '</b>' + name;
+var isOn = true;
+
+document.getElementById('turnon').addEventListener("click", function() {
+      // isOn.toggle();
+
+      // if (isOn == true) {
 
     chrome.tabs.query({url: '<all_urls>'}, tabs => {
 
         tabs.forEach(tab =>
-            chrome.tabs.sendMessage(tab.id, { name } )
+            chrome.tabs.sendMessage(tab.id, { isOn } )
           );
      });
+// isOn = false;
+
+// }
+   });
 
 
-});
+
+   var isOff = true;
+
+   document.getElementById('turnoff').addEventListener("click", function() {
+         // isOn.toggle();
+
+         // if (isOn == true) {
+
+       chrome.tabs.query({url: '<all_urls>'}, tabs => {
+
+           tabs.forEach(tab =>
+               chrome.tabs.sendMessage(tab.id, { isOff } )
+             );
+        });
+   // isOn = false;
+
+   // }
+      });
